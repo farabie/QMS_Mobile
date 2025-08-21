@@ -92,7 +92,7 @@ class _RectificationCreateState extends State<RectificationCreate> {
     });
 
     final String url =
-        'https://apiqms.triasmitra.com/public/api/rectification/show/${widget.ticketNumber}/ticket';
+        'https://stagingapiqms.triasmitra.com/public/api/rectification/show/${widget.ticketNumber}/ticket';
 
     try {
       final response = await http.get(Uri.parse(url));
@@ -155,7 +155,7 @@ class _RectificationCreateState extends State<RectificationCreate> {
     });
 
     final apiUrl =
-        'https://apiqms.triasmitra.com/public/api/rectification_record/index/${widget.ticketNumber}';
+        'https://stagingapiqms.triasmitra.com/public/api/rectification_record/index/${widget.ticketNumber}';
     try {
       final response = await http.get(Uri.parse(apiUrl));
 
@@ -192,7 +192,7 @@ class _RectificationCreateState extends State<RectificationCreate> {
 
   Future<void> submitRecordForm(List<XFile> files) async {
     final url = Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/rectification_record/store');
+        'https://stagingapiqms.triasmitra.com/public/api/rectification_record/store');
     var request = http.MultipartRequest('POST', url);
 
     // Add form fields
@@ -291,7 +291,7 @@ class _RectificationCreateState extends State<RectificationCreate> {
       // Send the POST request to the API
       final response = await http.post(
         Uri.parse(
-            'https://apiqms.triasmitra.com/public/api/rectification/update'),
+            'https://stagingapiqms.triasmitra.com/public/api/rectification/update'),
         headers: {
           'Content-Type': 'application/json', // Set the request content type
         },

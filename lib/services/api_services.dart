@@ -6,7 +6,7 @@ import 'package:qms_application/data/models/models.dart';
 
 Future<List<String>> fetchCableTypes() async {
   final response = await http
-      .get(Uri.parse('https://apiqms.triasmitra.com/public/api/cable-types'));
+      .get(Uri.parse('https://stagingapiqms.triasmitra.com/public/api/cable-types'));
 
   if (response.statusCode == 200) {
     final data = jsonDecode(response.body);
@@ -21,7 +21,7 @@ Future<List<String>> fetchCableTypes() async {
 
 Future<List<String>> fetchCategoryItems(String cableType) async {
   final response = await http.get(Uri.parse(
-      'https://apiqms.triasmitra.com/public/api/category-items/$cableType'));
+      'https://stagingapiqms.triasmitra.com/public/api/category-items/$cableType'));
 
   if (response.statusCode == 200) {
     final data = jsonDecode(response.body);
@@ -36,7 +36,7 @@ Future<List<String>> fetchCategoryItems(String cableType) async {
 
 Future<List<String>> fetchItems(String categoryItem, String cableType) async {
   final response = await http.get(Uri.parse(
-      'https://apiqms.triasmitra.com/public/api/items/$categoryItem/$cableType'));
+      'https://stagingapiqms.triasmitra.com/public/api/items/$categoryItem/$cableType'));
 
   if (response.statusCode == 200) {
     final data = jsonDecode(response.body);
@@ -52,7 +52,7 @@ Future<List<String>> fetchItems(String categoryItem, String cableType) async {
 Future<List<String>> fetchCategoryItemCode(
     String item, String categoryItem) async {
   final response = await http.get(Uri.parse(
-      'https://apiqms.triasmitra.com/public/api/category-item-code/$item/$categoryItem'));
+      'https://stagingapiqms.triasmitra.com/public/api/category-item-code/$item/$categoryItem'));
 
   if (response.statusCode == 200) {
     final data = jsonDecode(response.body);
@@ -225,7 +225,7 @@ class ApiService {
     print('Username yang digunakan: $username');
 
     final Uri url = Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/getClusterName/$username');
+        'https://stagingapiqms.triasmitra.com/public/api/getClusterName/$username');
 
     try {
       final response = await http.get(url);
@@ -268,7 +268,7 @@ class ApiService {
     String? phoneOps,
   ) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/create-inspection';
+        'https://stagingapiqms.triasmitra.com/public/api/create-inspection';
 
     final response = await http.post(
       Uri.parse(url),
@@ -324,7 +324,7 @@ class ApiService {
     String? emailOps,
     String? phoneOps,
   ) async {
-    const String url = 'https://apiqms.triasmitra.com/public/api/create-audit';
+    const String url = 'https://stagingapiqms.triasmitra.com/public/api/create-audit';
 
     final response = await http.post(
       Uri.parse(url),
@@ -368,7 +368,7 @@ class ApiService {
   Future<void> updateInspectionTicketStatusOnProgress(
       String idInspection, String newStatus) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/inspection/update-status-progress';
+        'https://stagingapiqms.triasmitra.com/public/api/inspection/update-status-progress';
 
     String onProgressDate =
         DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
@@ -402,7 +402,7 @@ class ApiService {
   Future<void> updateAuditTicketStatusOnProgress(
       String idAudit, String newStatus) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/audit/update-status-progress';
+        'https://stagingapiqms.triasmitra.com/public/api/audit/update-status-progress';
 
     String onProgressDate =
         DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
@@ -436,7 +436,7 @@ class ApiService {
   Future<void> updateInspectionTicketStatusSubmitted(
       String idInspection, String newStatus) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/inspection/update-status-submitted';
+        'https://stagingapiqms.triasmitra.com/public/api/inspection/update-status-submitted';
 
     String submittedDate =
         DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
@@ -470,7 +470,7 @@ class ApiService {
   Future<void> updateAuditTicketStatusSubmitted(
       String idAudit, String newStatus) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/audit/update-status-submitted';
+        'https://stagingapiqms.triasmitra.com/public/api/audit/update-status-submitted';
 
     String submittedDate =
         DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
@@ -503,7 +503,7 @@ class ApiService {
 
   Future<List<Inspection>> fetchAllInspections(String username) async {
     final response = await http.get(Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/inspection/$username'));
+        'https://stagingapiqms.triasmitra.com/public/api/inspection/$username'));
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
@@ -518,7 +518,7 @@ class ApiService {
 
   Future<List<Audit>> fetchAllAudits(String username) async {
     final response = await http.get(
-        Uri.parse('https://apiqms.triasmitra.com/public/api/audit/$username'));
+        Uri.parse('https://stagingapiqms.triasmitra.com/public/api/audit/$username'));
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
@@ -533,7 +533,7 @@ class ApiService {
   Future<List<Inspection>> fetchInspectionByTicket(String idInspection) async {
     print('Fetching inspections for ID: $idInspection');
     final response = await http.get(Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/inspection/id/$idInspection'));
+        'https://stagingapiqms.triasmitra.com/public/api/inspection/id/$idInspection'));
 
     if (response.statusCode == 200) {
       final jsonData = json.decode(response.body);
@@ -553,7 +553,7 @@ class ApiService {
   Future<List<Audit>> fetchAuditByTicket(String idAudit) async {
     print('Fetching audits for ID: $idAudit');
     final response = await http.get(Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/audit/id/$idAudit'));
+        'https://stagingapiqms.triasmitra.com/public/api/audit/id/$idAudit'));
 
     if (response.statusCode == 200) {
       final jsonData = json.decode(response.body);
@@ -573,7 +573,7 @@ class ApiService {
   Future<InspectionResponse> fetchInspectionByTicket2(String qmsTicket) async {
     print('Fetching inspections for QMS Ticket: $qmsTicket');
     final response = await http.get(Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/inspection/asset/$qmsTicket'));
+        'https://stagingapiqms.triasmitra.com/public/api/inspection/asset/$qmsTicket'));
 
     print('Response status: ${response.statusCode}');
     print('Response body: ${response.body}');
@@ -594,7 +594,7 @@ class ApiService {
   Future<AuditResponse> fetchAuditByTicket2(String qmsTicket) async {
     print('Fetching audits for QMS Ticket: $qmsTicket');
     final response = await http.get(Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/audit/asset/$qmsTicket'));
+        'https://stagingapiqms.triasmitra.com/public/api/audit/asset/$qmsTicket'));
 
     print('Response status: ${response.statusCode}');
     print('Response body: ${response.body}');
@@ -614,7 +614,7 @@ class ApiService {
   Future<Map<String, dynamic>> postAssetTaggingInspection(
       Map<String, dynamic> payload) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/asset-tagging-inspection';
+        'https://stagingapiqms.triasmitra.com/public/api/asset-tagging-inspection';
 
     final response = await http.post(
       Uri.parse(url),
@@ -640,7 +640,7 @@ class ApiService {
   Future<Map<String, dynamic>> postAssetTaggingAudit(
       Map<String, dynamic> payload) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/asset-tagging-audit';
+        'https://stagingapiqms.triasmitra.com/public/api/asset-tagging-audit';
 
     final response = await http.post(
       Uri.parse(url),
@@ -665,7 +665,7 @@ class ApiService {
   Future<List<AssetTaggingInspection>> getAssetTaggingInspection(
       String idInspection) async {
     final response = await http.get(Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/asset-tagging-inspection/$idInspection'));
+        'https://stagingapiqms.triasmitra.com/public/api/asset-tagging-inspection/$idInspection'));
 
     if (response.statusCode == 200) {
       try {
@@ -705,7 +705,7 @@ class ApiService {
 
   Future<List<AssetTaggingAudit>> getAssetTaggingAudit(String idAudit) async {
     final response = await http.get(Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/asset-tagging-audit/$idAudit'));
+        'https://stagingapiqms.triasmitra.com/public/api/asset-tagging-audit/$idAudit'));
 
     if (response.statusCode == 200) {
       try {
@@ -750,7 +750,7 @@ class ApiService {
     required int findingCount,
   }) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/asset-tagging-inspection/update';
+        'https://stagingapiqms.triasmitra.com/public/api/asset-tagging-inspection/update';
     final response = await http.put(
       Uri.parse(url),
       headers: <String, String>{
@@ -780,7 +780,7 @@ class ApiService {
     required int findingCount,
   }) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/asset-tagging-audit/update';
+        'https://stagingapiqms.triasmitra.com/public/api/asset-tagging-audit/update';
     final response = await http.put(
       Uri.parse(url),
       headers: <String, String>{
@@ -808,7 +808,7 @@ class ApiService {
     required String defectId,
   }) async {
     const String url =
-        'https://apiqms.triasmitra.com/public/api/create-defect-id';
+        'https://stagingapiqms.triasmitra.com/public/api/create-defect-id';
 
     final response = await http.post(
       Uri.parse(url),
@@ -849,7 +849,7 @@ class ApiService {
     required String description,
   }) async {
     var uri =
-        Uri.parse('https://apiqms.triasmitra.com/public/api/inspection-result');
+        Uri.parse('https://stagingapiqms.triasmitra.com/public/api/inspection-result');
     var request = http.MultipartRequest('POST', uri);
 
     request.fields['id_asset_tagging'] = idAssetTagging;
@@ -900,7 +900,7 @@ class ApiService {
     required String description,
   }) async {
     var uri =
-        Uri.parse('https://apiqms.triasmitra.com/public/api/audit-result');
+        Uri.parse('https://stagingapiqms.triasmitra.com/public/api/audit-result');
     var request = http.MultipartRequest('POST', uri);
 
     request.fields['id_asset_tagging'] = idAssetTagging;
@@ -942,7 +942,7 @@ class ApiService {
       return;
     }
     const String url =
-        'https://apiqms.triasmitra.com/public/api/inspection-result/update-status';
+        'https://stagingapiqms.triasmitra.com/public/api/inspection-result/update-status';
 
     try {
       final response = await http.put(
@@ -976,7 +976,7 @@ class ApiService {
       return;
     }
     const String url =
-        'https://apiqms.triasmitra.com/public/api/audit-result/update-status';
+        'https://stagingapiqms.triasmitra.com/public/api/audit-result/update-status';
 
     try {
       final response = await http.put(
@@ -1006,7 +1006,7 @@ class ApiService {
   Future<List<Map<String, dynamic>>> getInspectionResultsByTagging(
       String idInspection, String nama) async {
     final response = await http.get(Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/inspection-result/$idInspection/$nama'));
+        'https://stagingapiqms.triasmitra.com/public/api/inspection-result/$idInspection/$nama'));
 
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
@@ -1022,7 +1022,7 @@ class ApiService {
   Future<List<Map<String, dynamic>>> getAuditResultsByTagging(
       String idAudit, String nama) async {
     final response = await http.get(Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/audit-result/$idAudit/$nama'));
+        'https://stagingapiqms.triasmitra.com/public/api/audit-result/$idAudit/$nama'));
 
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);

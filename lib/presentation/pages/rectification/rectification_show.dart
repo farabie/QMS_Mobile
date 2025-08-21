@@ -107,7 +107,7 @@ class _RectificationShowState extends State<RectificationShow> {
 
   Future<void> fetchRectificationData() async {
     final String url =
-        'https://apiqms.triasmitra.com/public/api/rectification/show/${widget.ticketNumber}/ticket';
+        'https://stagingapiqms.triasmitra.com/public/api/rectification/show/${widget.ticketNumber}/ticket';
 
     try {
       // Perform the GET request
@@ -260,7 +260,7 @@ class _RectificationShowState extends State<RectificationShow> {
 
   Future<void> fetchRecordData() async {
     final url = Uri.parse(
-      'https://apiqms.triasmitra.com/public/api/rectification_record/show/${widget.ticketNumber}/${widget.step}',
+      'https://stagingapiqms.triasmitra.com/public/api/rectification_record/show/${widget.ticketNumber}/${widget.step}',
     );
 
     try {
@@ -282,7 +282,7 @@ class _RectificationShowState extends State<RectificationShow> {
 
   Future<void> fetchCustomerData() async {
     final url = Uri.parse(
-        'https://apiqms.triasmitra.com/public/api/rectification/show/${widget.ticketNumber}/customer');
+        'https://stagingapiqms.triasmitra.com/public/api/rectification/show/${widget.ticketNumber}/customer');
 
     try {
       final response = await http.get(url);
@@ -313,7 +313,7 @@ class _RectificationShowState extends State<RectificationShow> {
 
   Future<void> fetchWorkerData() async {
     String url =
-        'https://apiqms.triasmitra.com/public/api/rectification/index/worker/${user.serpo}';
+        'https://stagingapiqms.triasmitra.com/public/api/rectification/index/worker/${user.serpo}';
 
     try {
       // Perform the GET request
@@ -416,7 +416,7 @@ class _RectificationShowState extends State<RectificationShow> {
       // Send the POST request to the API
       final response = await http.post(
         Uri.parse(
-            'https://apiqms.triasmitra.com/public/api/rectification/store'),
+            'https://stagingapiqms.triasmitra.com/public/api/rectification/store'),
         headers: {
           'Content-Type': 'application/json', // Set the request content type
         },
@@ -490,7 +490,7 @@ class _RectificationShowState extends State<RectificationShow> {
                         builder: (context) => Dialog(
                           child: InteractiveViewer(
                             child: Image.network(
-                              'https://apiqms.triasmitra.com/storage/app/public/${photoUrl}',
+                              'https://stagingapiqms.triasmitra.com/storage/app/public/${photoUrl}',
                               fit: BoxFit.contain,
                               errorBuilder: (context, error, stackTrace) {
                                 return const Icon(Icons.error);
@@ -501,7 +501,7 @@ class _RectificationShowState extends State<RectificationShow> {
                       );
                     },
                     child: Image.network(
-                      'https://apiqms.triasmitra.com/storage/app/public/${photoUrl}',
+                      'https://stagingapiqms.triasmitra.com/storage/app/public/${photoUrl}',
                       width: 100,
                       height: 100,
                       fit: BoxFit.cover,
@@ -573,7 +573,7 @@ class _RectificationShowState extends State<RectificationShow> {
                     onTap: () {
                       // Construct the URL
                       final String imageUrl =
-                          'https://apiqms.triasmitra.com/storage/app/public/rectification/${stepData['ticketNumber']}/${stepData['step']}/${photoUrl}';
+                          'https://stagingapiqms.triasmitra.com/storage/app/public/rectification/${stepData['ticketNumber']}/${stepData['step']}/${photoUrl}';
 
                       // Print the URL to the console
 
@@ -596,7 +596,7 @@ class _RectificationShowState extends State<RectificationShow> {
                     },
                     child: Image.network(
                       // Thumbnail URL
-                      'https://apiqms.triasmitra.com/storage/app/public/rectification/${stepData['ticketNumber']}/${stepData['step']}/${photoUrl}',
+                      'https://stagingapiqms.triasmitra.com/storage/app/public/rectification/${stepData['ticketNumber']}/${stepData['step']}/${photoUrl}',
                       width: 100,
                       height: 100,
                       fit: BoxFit.cover,
@@ -1502,7 +1502,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                             builder: (context) => Dialog(
                                               child: InteractiveViewer(
                                                 child: Image.network(
-                                                  'https://apiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData?['panoramic']}',
+                                                  'https://stagingapiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData?['panoramic']}',
                                                   fit: BoxFit.contain,
                                                   errorBuilder: (context, error,
                                                       stackTrace) {
@@ -1515,7 +1515,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                           );
                                         },
                                         child: Image.network(
-                                          'https://apiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData?['panoramic']}',
+                                          'https://stagingapiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData?['panoramic']}',
                                           width: 100,
                                           height: 100,
                                           fit: BoxFit.cover,
@@ -1545,7 +1545,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                             builder: (context) => Dialog(
                                               child: InteractiveViewer(
                                                 child: Image.network(
-                                                  'https://apiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData?['far']}',
+                                                  'https://stagingapiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData?['far']}',
                                                   fit: BoxFit.contain,
                                                   errorBuilder: (context, error,
                                                       stackTrace) {
@@ -1558,7 +1558,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                           );
                                         },
                                         child: Image.network(
-                                          'https://apiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData?['panoramic']}',
+                                          'https://stagingapiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData?['panoramic']}',
                                           width: 100,
                                           height: 100,
                                           fit: BoxFit.cover,
@@ -1638,7 +1638,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                             builder: (context) => Dialog(
                                               child: InteractiveViewer(
                                                 child: Image.network(
-                                                  'https://apiqms.triasmitra.com/storage/app/public/${auditAdditionalData?['panoramic']}',
+                                                  'https://stagingapiqms.triasmitra.com/storage/app/public/${auditAdditionalData?['panoramic']}',
                                                   fit: BoxFit.contain,
                                                   errorBuilder: (context, error,
                                                       stackTrace) {
@@ -1651,7 +1651,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                           );
                                         },
                                         child: Image.network(
-                                          'https://apiqms.triasmitra.com/storage/app/public/${auditAdditionalData?['panoramic']}',
+                                          'https://stagingapiqms.triasmitra.com/storage/app/public/${auditAdditionalData?['panoramic']}',
                                           width: 100,
                                           height: 100,
                                           fit: BoxFit.cover,
@@ -1681,7 +1681,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                             builder: (context) => Dialog(
                                               child: InteractiveViewer(
                                                 child: Image.network(
-                                                  'https://apiqms.triasmitra.com/storage/app/public/${auditAdditionalData?['far']}',
+                                                  'https://stagingapiqms.triasmitra.com/storage/app/public/${auditAdditionalData?['far']}',
                                                   fit: BoxFit.contain,
                                                   errorBuilder: (context, error,
                                                       stackTrace) {
@@ -1694,7 +1694,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                           );
                                         },
                                         child: Image.network(
-                                          'https://apiqms.triasmitra.com/storage/app/public/${auditAdditionalData?['panoramic']}',
+                                          'https://stagingapiqms.triasmitra.com/storage/app/public/${auditAdditionalData?['panoramic']}',
                                           width: 100,
                                           height: 100,
                                           fit: BoxFit.cover,
@@ -2170,7 +2170,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                           builder: (context) => Dialog(
                                             child: InteractiveViewer(
                                               child: Image.network(
-                                                'https://apiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData!['panoramic']}',
+                                                'https://stagingapiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData!['panoramic']}',
                                                 fit: BoxFit.contain,
                                                 errorBuilder: (context, error,
                                                     stackTrace) {
@@ -2183,7 +2183,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                         );
                                       },
                                       child: Image.network(
-                                        'https://apiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData!['panoramic']}',
+                                        'https://stagingapiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData!['panoramic']}',
                                         width: 100,
                                         height: 100,
                                         fit: BoxFit.cover,
@@ -2213,7 +2213,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                           builder: (context) => Dialog(
                                             child: InteractiveViewer(
                                               child: Image.network(
-                                                'https://apiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData!['far']}',
+                                                'https://stagingapiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData!['far']}',
                                                 fit: BoxFit.contain,
                                                 errorBuilder: (context, error,
                                                     stackTrace) {
@@ -2226,7 +2226,7 @@ class _RectificationShowState extends State<RectificationShow> {
                                         );
                                       },
                                       child: Image.network(
-                                        'https://apiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData!['panoramic']}',
+                                        'https://stagingapiqms.triasmitra.com/storage/app/public/${inspectionAdditionalData!['panoramic']}',
                                         width: 100,
                                         height: 100,
                                         fit: BoxFit.cover,
@@ -2862,7 +2862,7 @@ class _RectificationShowState extends State<RectificationShow> {
           builder: (context) => Dialog(
             child: InteractiveViewer(
               child: Image.network(
-                'https://apiqms.triasmitra.com/storage/app/public/$imageUrl',
+                'https://stagingapiqms.triasmitra.com/storage/app/public/$imageUrl',
                 fit: BoxFit.contain,
                 errorBuilder: (context, error, stackTrace) {
                   return SizedBox.shrink(); // Show nothing if loading fails
@@ -2873,7 +2873,7 @@ class _RectificationShowState extends State<RectificationShow> {
         );
       },
       child: Image.network(
-        'https://apiqms.triasmitra.com/storage/app/public/$imageUrl',
+        'https://stagingapiqms.triasmitra.com/storage/app/public/$imageUrl',
         width: 100,
         height: 100,
         fit: BoxFit.cover,
@@ -2989,7 +2989,7 @@ class _RectificationShowState extends State<RectificationShow> {
                             builder: (context) => Dialog(
                               child: InteractiveViewer(
                                 child: Image.network(
-                                  'https://apiqms.triasmitra.com/storage/app/public/rectification/$paramTicketNumber/$paramStep/$file',
+                                  'https://stagingapiqms.triasmitra.com/storage/app/public/rectification/$paramTicketNumber/$paramStep/$file',
                                   fit: BoxFit.contain,
                                   errorBuilder: (context, error, stackTrace) {
                                     return const Icon(Icons.error);
@@ -3000,7 +3000,7 @@ class _RectificationShowState extends State<RectificationShow> {
                           );
                         },
                         child: Image.network(
-                          'https://apiqms.triasmitra.com/storage/app/public/rectification/$paramTicketNumber/$paramStep/$file',
+                          'https://stagingapiqms.triasmitra.com/storage/app/public/rectification/$paramTicketNumber/$paramStep/$file',
                           width: 100,
                           height: 100,
                           fit: BoxFit.cover,

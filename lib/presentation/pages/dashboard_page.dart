@@ -41,7 +41,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
   Future<int> fetchRectification() async {
     String apiUrl =
-        'https://apiqms.triasmitra.com/public/api/rectification/index/ticket/${user.serpo}';
+        'https://stagingapiqms.triasmitra.com/public/api/rectification/index/ticket/${user.serpo}';
 
     try {
       final response = await http.get(Uri.parse(apiUrl));

@@ -2,9 +2,9 @@ part of 'common.dart';
 
 //Mengatur Config atau host
 class URLs {
-  static const host = 'https://apiqms.triasmitra.com/public';
+  static const host = 'https://stagingapiqms.triasmitra.com/public';
 
-  static const hostStorage = 'https://apiqms.triasmitra.com/storage';
+  static const hostStorage = 'https://stagingapiqms.triasmitra.com/storage';
   static String installationImage(String fileName) =>
       '$hostStorage/app/public/$fileName';
 }

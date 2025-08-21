@@ -78,7 +78,7 @@ class _DetailInspectionResultPageState
       if (result['near_2'] != null) result['near_2'],
       if (result['near_3'] != null) result['near_3'],
     ]
-        .map((path) => 'https://apiqms.triasmitra.com/storage/app/public/$path')
+        .map((path) => 'https://stagingapiqms.triasmitra.com/storage/app/public/$path')
         .toList();
 
     return Container(
